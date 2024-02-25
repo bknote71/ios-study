@@ -76,3 +76,8 @@ members
     .sink { print("member", $0) }
 
 members.send(Member(id: "1", name: "bk2"))
+
+// cf) static func == 를 오버라이드하는 것은 Equatable 프로토콜을 채택하는 것? X
+// 즉 == 를 오버라이드하면 == 연산자 자체는 사용 가능하나, Equatable 프로토콜은 아닌 것!!!
+let x = Member(id: "x")
+print(x is (any Equatable)) // false
